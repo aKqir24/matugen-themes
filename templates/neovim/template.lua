@@ -20,7 +20,6 @@ require('base16-colorscheme').setup({
   base0F = "{{colors.secondary.default.hex | lighten: -10}}",
 })
 
-
 -- We first theme base16, but we also need to fix some other colors that don't
 -- contrast well by default
 
@@ -37,28 +36,17 @@ vim.api.nvim_set_hl(0, 'Visual', {
   fg = '{{colors.on_primary_container.default.hex}}', -- normal text contrast
 })
 
--- Make "string" text contrast better
-set_hl_mutliple({ 'String', 'TSString' }, {
-  fg = '{{colors.tertiary.default.hex | lighten: -15.0 }}',
-})
+-- Treesitter
+set_hl_mutliple({ 'String', 'TSString' }, { fg = '{{colors.tertiary.default.hex | lighten: -15.0 }}' })
+set_hl_mutliple({ 'TSComment', 'Comment' }, { fg = '{{colors.outline.default.hex}}' italic = true })
+set_hl_mutliple({ 'TSMethod', 'Method' }, { fg = '{{colors.tertiary.default.hex}}'})
+set_hl_mutliple({ 'TSFunction', 'Function' }, { fg = '{{colors.secondary.default.hex}}' })
+set_hl_mutliple({ 'Keyword', 'TSKeyword', 'TSKeywordFunction', 'TSRepeat' }, { fg = '{{colors.inverse_primary.default.hex}}'})
 
--- Grey out comments
-set_hl_mutliple({ 'TSComment', 'Comment' }, {
-  fg = '{{colors.outline.default.hex}}',
-  italic = true,
-})
-
--- Color in other highlight groups as you see fit!
-
-set_hl_mutliple({ 'TSMethod', 'Method' }, {
-  fg = '{{colors.tertiary.default.hex}}',
-})
-
-
-set_hl_mutliple({ 'TSFunction', 'Function' }, {
-  fg = '{{colors.secondary.default.hex}}',
-})
-
-set_hl_mutliple({ 'Keyword', 'TSKeyword', 'TSKeywordFunction', 'TSRepeat' }, {
-  fg = '{{colors.inverse_primary.default.hex}}',
-})
+-- NvimTree
+vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = "{{colors.on_primary_fixed_variant.default.hex}}" })
+vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "{{colors.source_color.default.hex}}" })
+vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "{{colors.on_primary.default.hex}}" })
+vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "{{colors.inverse_primary.default.hex}}" })
+vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", { fg = "{{colors.on_primary_fixed_variant.default.hex}}" })
+vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { bold = true, fg = "{{colors.primary.default.hex}}" })
