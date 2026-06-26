@@ -38,7 +38,7 @@ vim.api.nvim_set_hl(0, 'Visual', {
 
 -- Treesitter
 set_hl_mutliple({ 'String', 'TSString' }, { fg = '{{colors.tertiary.default.hex | lighten: -15.0 }}' })
-set_hl_mutliple({ 'TSComment', 'Comment' }, { fg = '{{colors.outline.default.hex}}' italic = true })
+set_hl_mutliple({ 'TSComment', 'Comment' }, { fg = '{{colors.outline.default.hex}}', italic = true })
 set_hl_mutliple({ 'TSMethod', 'Method' }, { fg = '{{colors.tertiary.default.hex}}'})
 set_hl_mutliple({ 'TSFunction', 'Function' }, { fg = '{{colors.secondary.default.hex}}' })
 set_hl_mutliple({ 'Keyword', 'TSKeyword', 'TSKeywordFunction', 'TSRepeat' }, { fg = '{{colors.inverse_primary.default.hex}}'})

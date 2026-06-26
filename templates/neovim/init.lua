@@ -1,7 +1,7 @@
 -- An example subset of your init.lua
+local matugen_path = os.getenv("HOME") .. "/.cache/matugen/nvim-colors.lua"  -- dofile doesn't expand $HOME or ~
 
 local function source_matugen()
-  local matugen_path = os.getenv("HOME") .. "/.cache/nvim-colors.lua"  -- dofile doesn't expand $HOME or ~
   local file, err = io.open(matugen_path, "r")
   if err ~= nil then
     vim.cmd('colorscheme base16-catppuccin-mocha')
@@ -15,7 +15,6 @@ end
 -- Main entrypoint on matugen reloads
 local function auxiliary_function()
   source_matugen() 
-  local matugen_path = os.getenv("HOME") .. "/.cache/nvim-colors.lua"  -- dofile doesn't expand $HOME or ~
   dofile(os.getenv("HOME") .. '/.config/nvim/lua/config/lualine.lua') -- path of your lualine setup
   vim.api.nvim_set_hl(0, "Comment", { italic = true })
 end
