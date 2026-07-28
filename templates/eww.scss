@@ -1,0 +1,57 @@
+// Eww Colors - Generated with Matugen
+
+// Base
+$eww-bg: {{ colors.surface.default.hex }};
+$eww-fg: {{ colors.on_surface.default.hex }};
+$eww-on-surface: {{ colors.on_surface.default.hex }};
+$eww-accent: {{ colors.primary.default.hex }};
+$eww-accent-fg: {{ colors.on_primary.default.hex }};
+$eww-secondary: {{ colors.secondary.default.hex }};
+$eww-secondary-fg: {{ colors.on_secondary.default.hex }};
+$eww-tertiary: {{ colors.tertiary.default.hex }};
+$eww-tertiary-fg: {{ colors.on_tertiary.default.hex }};
+
+// Surfaces
+$eww-surface: {{ colors.surface.default.hex }};
+$eww-surface-dim: {{ colors.surface_dim.default.hex }};
+$eww-surface-container-low: {{ colors.surface_container_low.default.hex }};
+$eww-surface-container: {{ colors.surface_container.default.hex }};
+$eww-surface-container-high: {{ colors.surface_container_high.default.hex }};
+$eww-surface-container-highest: {{ colors.surface_container_highest.default.hex }};
+$eww-surface-variant: {{ colors.surface_variant.default.hex }};
+$eww-on-surface-variant: {{ colors.on_surface_variant.default.hex }};
+
+// Outline
+$eww-outline: {{ colors.outline.default.hex }};
+$eww-outline-variant: {{ colors.outline_variant.default.hex }};
+
+// Containers
+$eww-primary-container: {{ colors.primary_container.default.hex }};
+$eww-on-primary-container: {{ colors.on_primary_container.default.hex }};
+$eww-secondary-container: {{ colors.secondary_container.default.hex }};
+$eww-on-secondary-container: {{ colors.on_secondary_container.default.hex }};
+$eww-tertiary-container: {{ colors.tertiary_container.default.hex }};
+$eww-on-tertiary-container: {{ colors.on_tertiary_container.default.hex }};
+
+// Error
+$eww-error: {{ colors.error.default.hex }};
+$eww-on-error: {{ colors.on_error.default.hex }};
+$eww-error-container: {{ colors.error_container.default.hex }};
+$eww-on-error-container: {{ colors.on_error_container.default.hex }};
+
+// Fixed
+$eww-primary-fixed: {{ colors.primary_fixed.default.hex }};
+$eww-primary-fixed-dim: {{ colors.primary_fixed_dim.default.hex }};
+$eww-secondary-fixed: {{ colors.secondary_fixed.default.hex }};
+$eww-secondary-fixed-dim: {{ colors.secondary_fixed_dim.default.hex }};
+$eww-tertiary-fixed: {{ colors.tertiary_fixed.default.hex }};
+$eww-tertiary-fixed-dim: {{ colors.tertiary_fixed_dim.default.hex }};
+
+// Inverse
+$eww-inverse-surface: {{ colors.inverse_surface.default.hex }};
+$eww-inverse-on-surface: {{ colors.inverse_on_surface.default.hex }};
+$eww-inverse-primary: {{ colors.inverse_primary.default.hex }};
+
+// Shadow & Scrim
+$eww-shadow: {{ colors.shadow.default.hex }};
+$eww-scrim: {{ colors.scrim.default.hex }};
