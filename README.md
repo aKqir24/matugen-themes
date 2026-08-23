@@ -78,6 +78,8 @@
 - [Cava](#cava)
 - [Cosmic](#cosmic)
 - [Clipse](#clipse)
+- [Discord (system24)](#discord-system24)
+- [Discord (Midnight)](#discord-midnight)
 - [Dunst](#dunst)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
@@ -94,7 +96,6 @@
 - [MangoWC](#mangowc)
 - [McFly](#mcfly)
 - [Micro](#micro)
-- [Midnight Discord](#midnight-discord)
 - [Neovim](#neovim)
 - [Neovim plugin](#neovim-plugin)
 - [Niri](#niri)
@@ -266,6 +267,46 @@ input_path = './templates/clipse-colors.json'
 output_path = '~/.config/clipse/custom_theme.json'
 # ...
 ```
+
+### Discord Midnight
+
+Make a new template file and paste the content from [here](./templates/midnight-discord.css) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
+
+### Discord system24
+
+The system24 styling process is the exact same as Midnight:
+Make a new template file and paste the content from [here](./templates/system24.css) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/system24.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
+
 
 ### Dunst
 
@@ -606,26 +647,7 @@ output_path = '~/.config/micro/colorschemes/matugen.micro'
 # ...
 ```
 
-Then, prss `Ctrl+E` in micro editor and enter `set colorscheme matugen`
-
-### Midnight Discord
-
-Make a new template file and paste the content from [here](./templates/midnight-discord.css) into the file.
-
-Then replace `/path/to/template/` with the path to your previously created template file.
-
-```toml
-[config]
-# ...
-[templates.vesktop]
-input_path = 'path/to/template'
-output_path = '~/.config/vesktop/themes/midnight-discord.css'
-```
-
-> [!NOTE]
-> ``output_path`` may be different if you are using Flatpak version of Vesktop.
-
-Then, activate the theme from vencord themes.
+Then, press `Ctrl+E` in micro editor and enter `set colorscheme matugen`
 
 ### Neovim
 
@@ -1367,7 +1389,6 @@ Then import the `colors.css` to `~/.config/swaync/style.css`:
 ```css
 @import "colors.css";
 ```
-
 
 ### Telegram
 
