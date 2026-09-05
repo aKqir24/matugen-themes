@@ -1,5 +1,6 @@
 return {
-    focused_border = "{{colors.primary.default.hex}}",
+    accent_color = "{{colors.source_color.default.hex}}",
+    focused_border = "{{colors.source_color.default.hex}}",
     unfocused_border = "{{colors.surface_container_high.default.hex}}",
 	gray = "{{colors.on_secondary_fixed.default.hex}}",
 	red = "{{colors.error.default.hex}}",
