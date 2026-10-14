@@ -78,9 +78,13 @@
 - [Cava](#cava)
 - [Cosmic](#cosmic)
 - [Clipse](#clipse)
+- [Discord (system24)](#discord-system24)
+- [Discord (Midnight)](#discord-midnight)
 - [Dunst](#dunst)
+- [Foot](#foot)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
+- [Ghostwriter](#ghostwriter)
 - [Gnome-shell](#gnome-shell)
 - [GTK (3.0, 4.0)](#gtk)
 - [Helix](#helix)
@@ -94,7 +98,6 @@
 - [MangoWC](#mangowc)
 - [McFly](#mcfly)
 - [Micro](#micro)
-- [Midnight Discord](#midnight-discord)
 - [Neovim](#neovim)
 - [Neovim plugin](#neovim-plugin)
 - [Niri](#niri)
@@ -267,6 +270,46 @@ output_path = '~/.config/clipse/custom_theme.json'
 # ...
 ```
 
+### Discord Midnight
+
+Make a new template file and paste the content from [here](./templates/midnight-discord.css) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
+
+### Discord system24
+
+The system24 styling process is the exact same as Midnight:
+Make a new template file and paste the content from [here](./templates/system24.css) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.vesktop]
+input_path = 'path/to/template'
+output_path = '~/.config/vesktop/themes/system24.css'
+```
+
+> [!NOTE]
+> ``output_path`` may be different if you are using Flatpak version of Vesktop.
+
+Then, activate the theme from vencord themes.
+
+
 ### Dunst
 
 Make a new template file and paste the content from [here](./templates/dunstrc-colors) into the file.
@@ -281,6 +324,30 @@ input_path = 'path/to/template'
 output_path = '~/.config/dunst/dunstrc'
 post_hook = 'dunstctl reload'
 # ...
+```
+
+### Foot
+Make a new template file and paste the content from [here](./templates/foot-colors.ini) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.foot]
+input_path  = 'path/to/template'
+output_path = '~/.config/matugen/generated/foot-colors.ini'
+post_hook   = '''
+  pkill -SIGUSR1 foot
+  ln -nfs "$HOME/.config/matugen/generated/foot-colors.ini" "$HOME/.config/foot/foot-colors.ini"
+  touch "$HOME/.config/foot/foot.ini" || :
+'''
+
+```
+Then, add this line to your `~/.config/foot/foot.ini`:
+
+```ini
+include=~/.config/foot/foot-colors.ini
 ```
 
 ### Fuzzel
@@ -324,6 +391,30 @@ Then, add this line to your `~/.config/ghostty/config`:
 ```ini
 theme = "Matugen"
 ```
+
+### Ghostwriter
+
+Make a new template file and paste the content from [here](./templates/ghostwriter.json) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.ghostwriter]
+input_path = '/path/to/template/'
+output_path = '~/.local/share/ghostwriter/themes/Matugen.json'
+# ...
+```
+Then, change this line in your `~/.config/kde.org/ghostwriter.conf`:
+
+```conf
+[Style]
+...
+theme=Matugen
+...
+```
+Or change theme via GUI
 
 ### Gnome-shell
 
@@ -606,26 +697,7 @@ output_path = '~/.config/micro/colorschemes/matugen.micro'
 # ...
 ```
 
-Then, prss `Ctrl+E` in micro editor and enter `set colorscheme matugen`
-
-### Midnight Discord
-
-Make a new template file and paste the content from [here](./templates/midnight-discord.css) into the file.
-
-Then replace `/path/to/template/` with the path to your previously created template file.
-
-```toml
-[config]
-# ...
-[templates.vesktop]
-input_path = 'path/to/template'
-output_path = '~/.config/vesktop/themes/midnight-discord.css'
-```
-
-> [!NOTE]
-> ``output_path`` may be different if you are using Flatpak version of Vesktop.
-
-Then, activate the theme from vencord themes.
+Then, press `Ctrl+E` in micro editor and enter `set colorscheme matugen`
 
 ### Neovim
 
@@ -1367,7 +1439,6 @@ Then import the `colors.css` to `~/.config/swaync/style.css`:
 ```css
 @import "colors.css";
 ```
-
 
 ### Telegram
 
