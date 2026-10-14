@@ -78,19 +78,17 @@
 - [Cava](#cava)
 - [Cosmic](#cosmic)
 - [Clipse](#clipse)
-- [Discord (system24)](#discord-system24)
-- [Discord (Midnight)](#discord-midnight)
 - [Dunst](#dunst)
-- [Foot](#foot)
+- [Eww](#eww)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
-- [Ghostwriter](#ghostwriter)
 - [Gnome-shell](#gnome-shell)
 - [GTK (3.0, 4.0)](#gtk)
 - [Helix](#helix)
 - [Heroic Games Launcher](#heroic)
 - [Hyprland & Hyprlock](#hyprland)
 - [Hyprwat](#hyprwat)
+- [Iris](#iris)
 - [Kitty](#kitty)
 - [Kvantum](#kvantum)
 - [Labwc](#labwc)
@@ -98,12 +96,14 @@
 - [MangoWC](#mangowc)
 - [McFly](#mcfly)
 - [Micro](#micro)
+- [Midnight Discord](#midnight-discord)
 - [Neovim](#neovim)
 - [Neovim plugin](#neovim-plugin)
 - [Niri](#niri)
 - [OBS](#obs)
 - [Obsidian](#obsidian)
 - [Opencode](#opencode)
+- [Oxwm](#oxwm)
 - [Papirus Folders](#papirus-folders)
 - [PrismLauncher](#prismlauncher)
 - [Pywalfox](#pywalfox)
@@ -113,12 +113,13 @@
 - [Rofi](#rofi)
 - [Spicetify Sleek (Spotify)](#spicetify-sleek)
 - [Starship](#starship)
+- [Steam](#steam)
 - [Sway](#sway)
 - [Swaybar](#swaybar)
-- [Television](#television)
+- [SwayNC](#swaync)
 - [Telegram](#telegram)
+- [Television](#television)
 - [Tmux](#tmux)
-- [Zellij](#zellij)
 - [Vivaldi](#vivaldi)
 - [VS Code](#vs-code)
 - [Waybar](#waybar)
@@ -126,13 +127,13 @@
 - [Windows Terminal](#windows-terminal)
 - [Wine](#wine)
 - [Wlogout](#wlogout)
+- [Wofi](#wofi)
+- [XMonad](#xmonad)
 - [Yazi](#yazi)
 - [Zen Browser](#zen-browser)
 - [Zathura](#zathura)
 - [Zed](#zed)
-- [Wofi](#wofi)
-- [SwayNC](#swaync)
-- [Steam](#steam)
+- [Zellij](#zellij)
 
 ### Aerc
 
@@ -326,28 +327,20 @@ post_hook = 'dunstctl reload'
 # ...
 ```
 
-### Foot
-Make a new template file and paste the content from [here](./templates/foot-colors.ini) into the file.
+### Eww
 
-Then replace `/path/to/template/` with the path to your previously created template file.
+Make a new template file and paste the content from [here](./templates/eww.scss) into the file.
 
 ```toml
-[config]
+[templates.eww]
+input_path = 'path/to/template'
+output_path = '~/.config/eww/colors.scss'
 # ...
-[templates.foot]
-input_path  = 'path/to/template'
-output_path = '~/.config/matugen/generated/foot-colors.ini'
-post_hook   = '''
-  pkill -SIGUSR1 foot
-  ln -nfs "$HOME/.config/matugen/generated/foot-colors.ini" "$HOME/.config/foot/foot-colors.ini"
-  touch "$HOME/.config/foot/foot.ini" || :
-'''
-
 ```
-Then, add this line to your `~/.config/foot/foot.ini`:
+Then, import the `colors.scss` file into your main `eww.scss` file:
 
-```ini
-include=~/.config/foot/foot-colors.ini
+```scss
+@import "colors";
 ```
 
 ### Fuzzel
@@ -392,29 +385,25 @@ Then, add this line to your `~/.config/ghostty/config`:
 theme = "Matugen"
 ```
 
-### Ghostwriter
+### XMonad
 
-Make a new template file and paste the content from [here](./templates/ghostwriter.json) into the file.
+Make a new template file and paste the content from [here](./templates/Colors.hs) into the file.
 
 Then replace `/path/to/template/` with the path to your previously created template file.
 
 ```toml
 [config]
 # ...
-[templates.ghostwriter]
-input_path = '/path/to/template/'
-output_path = '~/.local/share/ghostwriter/themes/Matugen.json'
+[templates.xmonad]
+input_path = 'path/to/template'
+output_path = '~/.config/xmonad/lib/Colors.hs'
 # ...
 ```
-Then, change this line in your `~/.config/kde.org/ghostwriter.conf`:
+Then, import `Colors` in your `xmonad.hs`:
 
-```conf
-[Style]
-...
-theme=Matugen
-...
+```haskell
+import qualified Colors as C
 ```
-Or change theme via GUI
 
 ### Gnome-shell
 
@@ -549,6 +538,21 @@ Then, add this line to the top of your `~/.config/hyprwat/hyprwat.conf` file:
 
 ```conf
 source = ~/.config/hyprwat/hyprwat-colors.conf
+```
+
+### Iris
+
+Make a new template file and paste the content from [here](./templates/iris-theme.toml) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.iris]
+input_path = 'path/to/template'
+output_path = '~/.config/iris/theme.toml'
+# ...
 ```
 
 ### Kitty
@@ -833,6 +837,26 @@ output_path = 'yourOwnPath/to/obsidianVault/.obsidian/snippets/matugen.css'
 ```
 > ![NOTE] For Obsidian, you might need to make multiple template with different output_path entry if you have multiple Obsidian Vaults.
 After: Open Obsidian > Settings > Appearance > CSS snippets > Turn on matugen.css
+
+### Oxwm
+
+Make a new template file and paste the content from [here](./templates/oxwm-colors.lua) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.oxwm]
+input_path = 'path/to/template'
+output_path = '~/.config/oxwm/colors.lua'
+# ...
+```
+Then, require `colors` in your `oxwm` config file:
+
+```lua
+local colors = require("colors")
+```
 
 ### OpenCode
 
