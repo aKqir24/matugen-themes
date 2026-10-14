@@ -81,8 +81,10 @@
 - [Discord (system24)](#discord-system24)
 - [Discord (Midnight)](#discord-midnight)
 - [Dunst](#dunst)
+- [Foot](#foot)
 - [Fuzzel](#fuzzel)
 - [Ghostty](#ghostty)
+- [Ghostwriter](#ghostwriter)
 - [Gnome-shell](#gnome-shell)
 - [GTK (3.0, 4.0)](#gtk)
 - [Helix](#helix)
@@ -324,6 +326,30 @@ post_hook = 'dunstctl reload'
 # ...
 ```
 
+### Foot
+Make a new template file and paste the content from [here](./templates/foot-colors.ini) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.foot]
+input_path  = 'path/to/template'
+output_path = '~/.config/matugen/generated/foot-colors.ini'
+post_hook   = '''
+  pkill -SIGUSR1 foot
+  ln -nfs "$HOME/.config/matugen/generated/foot-colors.ini" "$HOME/.config/foot/foot-colors.ini"
+  touch "$HOME/.config/foot/foot.ini" || :
+'''
+
+```
+Then, add this line to your `~/.config/foot/foot.ini`:
+
+```ini
+include=~/.config/foot/foot-colors.ini
+```
+
 ### Fuzzel
 
 Make a new template file and paste the content from [here](./templates/fuzzel.ini) into the file.
@@ -365,6 +391,30 @@ Then, add this line to your `~/.config/ghostty/config`:
 ```ini
 theme = "Matugen"
 ```
+
+### Ghostwriter
+
+Make a new template file and paste the content from [here](./templates/ghostwriter.json) into the file.
+
+Then replace `/path/to/template/` with the path to your previously created template file.
+
+```toml
+[config]
+# ...
+[templates.ghostwriter]
+input_path = '/path/to/template/'
+output_path = '~/.local/share/ghostwriter/themes/Matugen.json'
+# ...
+```
+Then, change this line in your `~/.config/kde.org/ghostwriter.conf`:
+
+```conf
+[Style]
+...
+theme=Matugen
+...
+```
+Or change theme via GUI
 
 ### Gnome-shell
 
